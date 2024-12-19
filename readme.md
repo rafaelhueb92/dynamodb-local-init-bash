@@ -111,13 +111,3 @@
         <li>The tables created will be available only on the local DynamoDB instance.</li>
         <li>Ensure your AWS CLI is configured to point to the local DynamoDB instance using the <code>--endpoint-url http://localhost:8000</code> option.</li>
     </ul>
-
-<h2>Contributing</h2>
-    <p>
-        Feel free to fork this repository, make improvements, and create pull requests. Any contributions are welcome!
-    </p>
-
-<h2>License</h2>
-    <p>
-        This project is open-source and available under the MIT License.
-    </p>
