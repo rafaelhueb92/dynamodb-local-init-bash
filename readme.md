@@ -12,8 +12,7 @@
     ├── docker-compose.yml       # Docker Compose file to run DynamoDB locally
     ├── schemas/                 # Folder containing JSON schema files
     │   ├── table1-schema.json   # Example schema file for table1
-    │   ├── table2-schema.json   # Example schema file for table2
-    ├── create-tables.sh         # Bash script to create tables in DynamoDB
+    ├── init.sh                  # Bash script to init Docker Compose and create tables in DynamoDB if necessary
     └── README.html              # This file
     </pre>
 
@@ -36,17 +35,16 @@
         The project uses Docker Compose to spin up DynamoDB locally. The <code>docker-compose.yml</code> file is configured to pull the official Amazon DynamoDB Local image.
     </p>
     <pre>
-    version: '3'
     services:
-      dynamodb-local:
-        image: amazon/dynamodb-local:latest
-        ports:
-          - "8000:8000"
-        volumes:
-          - ./data:/data
-        environment:
-          - JAVA_OPTS=-Djava.library.path=/home/dynamodblocal/DynamoDBLocal_lib -Xmx512m
-        command: -sharedDb
+     dynamodb-local:
+      command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+      image: "amazon/dynamodb-local:latest"
+      container_name: dynamodb-local
+      ports:
+       - "8000:8000"
+      volumes:
+       - "./docker/dynamodb:/home/dynamodblocal/data"
+      working_dir: /home/dynamodblocal
     </pre>
 
 <h3>3. Organize Schema Files</h3>
@@ -83,10 +81,10 @@
 
 <h3>5. Run the Bash Script</h3>
     <p>
-        The <code>create-tables.sh</code> script will read all JSON schema files in the <code>schemas</code> folder and create DynamoDB tables locally if they do not already exist.
+        The <code>init.sh</code> script will read all JSON schema files in the <code>schemas</code> folder and create DynamoDB tables locally if they do not already exist.
     </p>
     <pre>
-    ./create-tables.sh
+    bash init.sh
     </pre>
     <p>
         The script will:
