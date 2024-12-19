@@ -26,8 +26,8 @@
 
 <h3>1. Clone the Repository</h3>
     <pre>
-    git clone <your-repository-url>
-    cd <your-repository-name>
+    git clone https://github.com/rafaelhueb92/dynamodb-local-init-bash.git
+    cd dynamodb-local-init-bash
     </pre>
 
 <h3>2. Docker Compose Setup</h3>
@@ -90,6 +90,7 @@
         The script will:
         <ul>
             <li>Check if DynamoDB is running.</li>
+            <li>If it's not running, it will run <code>docker-compose up -d</code>
             <li>Process each schema file in the <code>schemas</code> folder.</li>
             <li>Check if the table already exists in the local DynamoDB instance.</li>
             <li>Create the table if it does not already exist.</li>
