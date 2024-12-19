@@ -23,15 +23,15 @@
         <li><strong>AWS CLI:</strong> Ensure AWS CLI is configured to interact with DynamoDB locally.</li>
     </ul>
 
-    <h2>Setup Instructions</h2>
+<h2>Setup Instructions</h2>
 
-    <h3>1. Clone the Repository</h3>
+<h3>1. Clone the Repository</h3>
     <pre>
     git clone <your-repository-url>
     cd <your-repository-name>
     </pre>
 
-    <h3>2. Docker Compose Setup</h3>
+<h3>2. Docker Compose Setup</h3>
     <p>
         The project uses Docker Compose to spin up DynamoDB locally. The <code>docker-compose.yml</code> file is configured to pull the official Amazon DynamoDB Local image.
     </p>
@@ -49,7 +49,7 @@
         command: -sharedDb
     </pre>
 
-    <h3>3. Organize Schema Files</h3>
+<h3>3. Organize Schema Files</h3>
     <p>
         Place your DynamoDB table schema files in the <code>schemas</code> folder. Each schema file should be a JSON file with the table definition. The <code>TableName</code> attribute in each JSON file will be used to check if the table already exists.
     </p>
@@ -70,7 +70,7 @@
     }
     </pre>
 
-    <h3>4. Run Docker Compose</h3>
+<h3>4. Run Docker Compose</h3>
     <p>
         Use the following command to bring up the DynamoDB local container:
     </p>
@@ -81,7 +81,7 @@
         This will start the DynamoDB local instance, which will be accessible at <code>http://localhost:8000</code>.
     </p>
 
-    <h3>5. Run the Bash Script</h3>
+<h3>5. Run the Bash Script</h3>
     <p>
         The <code>create-tables.sh</code> script will read all JSON schema files in the <code>schemas</code> folder and create DynamoDB tables locally if they do not already exist.
     </p>
@@ -98,7 +98,7 @@
         </ul>
     </p>
 
-    <h3>6. Verify the Tables</h3>
+<h3>6. Verify the Tables</h3>
     <p>
         After running the script, you can verify the tables by running the following command:
     </p>
@@ -106,19 +106,19 @@
     aws dynamodb list-tables --endpoint-url http://localhost:8000
     </pre>
 
-    <h2>Notes</h2>
+<h2>Notes</h2>
     <ul>
         <li>This setup is for local development and testing only.</li>
         <li>The tables created will be available only on the local DynamoDB instance.</li>
         <li>Ensure your AWS CLI is configured to point to the local DynamoDB instance using the <code>--endpoint-url http://localhost:8000</code> option.</li>
     </ul>
 
-    <h2>Contributing</h2>
+<h2>Contributing</h2>
     <p>
         Feel free to fork this repository, make improvements, and create pull requests. Any contributions are welcome!
     </p>
 
-    <h2>License</h2>
+<h2>License</h2>
     <p>
         This project is open-source and available under the MIT License.
     </p>
