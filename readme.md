@@ -13,6 +13,7 @@
     ├── schemas/                 # Folder containing JSON schema files
     │   ├── table1-schema.json   # Example schema file for table1
     ├── init.sh                  # Bash script to init Docker Compose and create tables in DynamoDB if necessary
+    ├── examples/                # Folder containing examples to use with programming languages
     └── README.html              # This file
     </pre>
 
@@ -110,4 +111,5 @@
         <li>This setup is for local development and testing only.</li>
         <li>The tables created will be available only on the local DynamoDB instance.</li>
         <li>Ensure your AWS CLI is configured to point to the local DynamoDB instance using the <code>--endpoint-url http://localhost:8000</code> option.</li>
+        <li>To delete any table just run <code>aws dynamodb delete-table --table-name <TableName> --endpoint-url http://localhost:8000</code>
     </ul>
