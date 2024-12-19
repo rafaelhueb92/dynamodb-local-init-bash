@@ -4,7 +4,7 @@
 set -e
 
 # Check if DynamoDB is Running
-IMAGE="$(docker ps --format json | jq -r '.[0].Image')"
+IMAGE="$(docker ps --format json | jq -r '.Image')"
 
 if [[ "$IMAGE" != *"amazon/dynamodb-local:latest"* ]]; then
   echo "Initializing DynamoDB locally using Docker Compose..."
